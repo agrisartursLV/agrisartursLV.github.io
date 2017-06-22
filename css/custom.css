@@ -169,7 +169,7 @@ header .header-content .header-content-inner p {
 
 .page-footer .contact {
 	padding: 100px 0;
-	background-color: yellowgreen;
+	background-color: #6666ff;
 	color: #fff;
 	}
 
@@ -428,4 +428,74 @@ img::-moz-selection {
 
 .bg-primary {
     background-color: yellowgreen;
+}
+#spons1, #spons2{
+	font-size: 15px;
+}
+#sponsorButton,#sponsorButton2 {
+	border:none;
+	background-color:transparent;
+}
+#sponsorButton, #sponsorButton2:hover{
+	-webkit-transition: color 0.2s ease-out;
+    -moz-transition: color 0.2s ease-out;
+	color: lightblue;
+}
+#loginPopup{
+  opacity:0.8;
+  border-radius:20px;
+  position:fixed;
+  border: solid black 2px;
+  background: -webkit-repeating-linear-gradient(#2600D9, #ff1a1a);
+  width: 750px;
+  height: 500px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0 0 -375px;
+}
+#loginBlur{
+	  opacity:0.8;
+  border-radius:20px;
+  position:fixed;
+  border: solid black 2px;
+  background-color:black;
+  width: 1500px;
+  height: 1000px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -500px 0 0 -750px;
+    -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+#closeLogin{
+	border:none;
+	background-color:transparent;
+	margin-left: 90%;
+	color:black;
+	font-weight:bold;
+	font-size: 40px;
+}
+#closeLogin:hover{
+    -webkit-transition: color 0.2s ease-out;
+    -moz-transition: color 0.2s ease-out;
+    transition: color 0.2s ease-out;
+	color:red;
+}
+#older18{
+	position:absolute;
+	top:335px;
+	left:10px;
+	color:black;
+}
+#describeLogin{
+	text-shadow: 2px 2px 5px red;
+	font-style: oblique;
+	font-size:30px;
+	font-weight:bold;
+    position:absolute;
+	top:75px;
+	left:35px;
+	color:black;
 }

@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?
+#check if logged in.
+require "steamauth/steamauth.php";
+require "steamauth/userInfo.php";
+if(isset($_SESSION["steamid"])){
+$id = $_SESSION["steamid"];
+}else{
+#not logged in.
+}
+?>
 <html lang="en">
 
 <head>
@@ -7,8 +17,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <title>Business 2</title>
+    <title>CSGO Luck</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +38,6 @@
 </head>
 
 <body>
-
     <!-- Navigation -->
     <nav id="siteNav" class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -43,28 +51,31 @@
                 </button>
                 <a class="navbar-brand" href="#">
                 	<span class="glyphicon glyphicon-fire"></span> 
-                	LOGO
+                	CSGO Luck
                 </a>
             </div>
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-right">
+				<li>
+				<a><img class="img-rounded" src="<?$steamprofile["avatar"]?>"><b><?$steamprofile["personaname"];?></b><b class="caret"></b></a>
+				</li>
                     <li class="active">
                         <a href="#">Home</a>
                     </li>
                     <li>
-                        <a href="#">Products</a>
+                        <a href="#info">Information</a>
                     </li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
 						<ul class="dropdown-menu" aria-labelledby="about-us">
-							<li><a href="#">Engage</a></li>
-							<li><a href="#">Pontificate</a></li>
-							<li><a href="#">Synergize</a></li>
+							<li><a href="https://steamcommunity.com/id/AirStriker" target="_blank">Owner</a></li>
+							<li><a href="#contact">Sponsorship</a></li>
+							<li><a href="http://steamcommunity.com/groups/Official_CSLuck" target="_blank">Group</a></li>
 						</ul>
 					</li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="#contact">Contact</a>
                     </li>
                 </ul>
                 
@@ -73,25 +84,38 @@
     </nav>
 
 	<!-- Header -->
-    <header>
+    <header>	
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>Dramatically Engage</h1>
-                <p>Objectively innovate empowered manufactured products whereas parallel platforms.</p>
-                <a href="#" class="btn btn-primary btn-lg">Engage Now</a>
+                <h1>CSGO Luck</h1>
+                <p>Try out your luck today on CSGO Luck! With Coinflip and Jackpot included!</p>
+				<? if(isset($_SESSION["steamid"])) (?>
+				<a href="#" class="btn btn-primary btn-lg" id="logoutButton">Logout</a>
+				<?} else {?>
+                <a href="#" class="btn btn-primary btn-lg"id="loginButton">Login with Steam</a>
+				<? } ?>
             </div>
         </div>
+		<div id="loginMenu">
+	<div id="loginBlur">
+	</div>
+	<div id="loginPopup">
+	<button id="closeLogin">x</button>
+	<a id="older18">By logging in you agree that you are 18 and older.</a>
+	<a id="describeLogin">Welcome, Please log in.</a>
+	</div>
+	</div>
     </header>
 
     </section>
    
 	<!-- Content 2 -->
-     <section class="content content-2">
+     <section id = "info" class="content content-2">
             <div class="row">
                 <div class="col-sm-6">
-                	<h2 class="section-header">Superior Quality</h2>
-                	<p class="lead text-light">Holisticly predominate extensible testing procedures for reliable supply chains. Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
-                	<a href="#" class="btn btn-default btn-lg">Test It</a>
+                	<h2 class="section-header">In early Development</h2>
+                	<p class="lead text-light">This website is in it's early stages of development and creation, if you see any bugs please report them to the email down below. Roulette, Dice and many other minigames will be added when enough funds will be raised.</p>
+                	<a href="#" class="btn btn-default btn-lg">Play</a>
                 </div>    
                 <div class="col-sm-6">
                     <img class="img-responsive img-circle center-block" src="images/iphone.jpg" alt="">
@@ -107,22 +131,27 @@
     <footer class="page-footer">
     
     	<!-- Contact Us -->
-        <div class="contact">
+        <div id = "contact" class="contact">
         	<div class="container">
 				<h2 class="section-heading">Contact Us</h2>
-				<p><span class="glyphicon glyphicon-envelope"></span><br> info@example.com</p>
-        	</div>
+				<p><span class="glyphicon glyphicon-envelope"></span><br> CSLuckInfo@gmail.com</p>
+				<button id="sponsorButton2">Sponsorship</button>
+				<button id="sponsorButton">Sponsorship</button>
+				<p id="spons1">The requirements for sponsorship are as follow, 5,000+ subs, 20+ videos and send an email</p>	
+				<p id="spons2">regarding the sponsorship which includes your Profile link, Trade link and why we should sponsor you in depth.</p> 
+			</div>
         </div>
         	
         <!-- Copyright etc -->
         <div class="small-print">
         	<div class="container">
-        		<p>Copyright &copy; Example.com 2017</p>
+        		<p>Copyright &copy; CSGOLuck.com 2017</p>
         	</div>
         </div>
         
     </footer>
 
+	 
     <!-- jQuery -->
     <script src="js/jquery-1.11.3.min.js"></script>
 
@@ -134,6 +163,9 @@
     
     <!-- Custom Javascript -->
     <script src="js/custom.js"></script>
+	
+	<!-- Including javascript external file. -->
+     <script src="js/script.js"></script>
 
 </body>
 
